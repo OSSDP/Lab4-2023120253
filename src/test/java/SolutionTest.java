@@ -19,6 +19,8 @@ class SolutionTest {
         // 测试示例 1: 2 * 3 = 6
         assertEquals("6", solution.multiply("2", "3"));
 
+        assertEquals("100", solution.multiply("10", "10"));
+
         // 测试示例 2: 123 * 456 = 56088
         assertEquals("56088", solution.multiply("123", "456"));
     }
