@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * 用于测试 Solution 类中 multiply 方法的功能和边界情况。
  * 等价类划分为有效输入和无效输入，重点验证方法的正确性、鲁棒性和异常处理。
  */
-class SolutionTest {
+public class SolutionTest {
 
     /**
      * 测试普通情况的字符串相乘。
@@ -76,5 +76,9 @@ class SolutionTest {
 
         // 测试 9 * 98765 = 888885
         assertEquals("888885", solution.multiply("9", "98765"));
+    }
+
+    @org.junit.Test
+    public void multiply() {
     }
 }
