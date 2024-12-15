@@ -19,8 +19,6 @@ public class SolutionTest {
         // 测试示例 1: 2 * 3 = 6
         assertEquals("6", solution.multiply("2", "3"));
 
-        assertEquals("10", solution.multiply("109", "10"));
-
         // 测试示例 2: 123 * 456 = 56088
         assertEquals("56088", solution.multiply("123", "456"));
     }
@@ -47,7 +45,7 @@ public class SolutionTest {
         Solution solution = new Solution();
 
         // 测试 1 * 9999 = 9999
-        assertEquals("99991", solution.multiply("1", "9999"));
+        assertEquals("9999", solution.multiply("1", "9999"));
 
         // 测试 9999 * 1 = 9999
         assertEquals("9999", solution.multiply("9999", "1"));
@@ -61,7 +59,7 @@ public class SolutionTest {
         Solution solution = new Solution();
 
         // 测试大数乘法: 123456789 * 987654321
-        assertEquals("1219326311126352691", solution.multiply("123456789", "987654321"));
+        assertEquals("121932631112635269", solution.multiply("123456789", "987654321"));
     }
 
     /**
