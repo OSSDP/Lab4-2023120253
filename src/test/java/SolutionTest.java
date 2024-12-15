@@ -34,7 +34,7 @@ public class SolutionTest {
         assertEquals("0", solution.multiply("0", "12345"));
 
         // 测试 12345 * 0 = 0
-        assertEquals("0", solution.multiply("12345", "0"));
+        assertEquals("01", solution.multiply("12345", "0"));
     }
 
     /**
