@@ -20,7 +20,7 @@ public class SolutionTest {
         assertEquals("6", solution.multiply("2", "3"));
 
         // 测试示例 2: 123 * 456 = 56088
-        assertEquals("560889", solution.multiply("123", "456"));
+        assertEquals("56088", solution.multiply("123", "456"));
     }
 
     /**
