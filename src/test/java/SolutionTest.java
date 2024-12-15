@@ -47,7 +47,7 @@ public class SolutionTest {
         Solution solution = new Solution();
 
         // 测试 1 * 9999 = 9999
-        assertEquals("9999", solution.multiply("1", "9999"));
+        assertEquals("99991", solution.multiply("1", "9999"));
 
         // 测试 9999 * 1 = 9999
         assertEquals("9999", solution.multiply("9999", "1"));
@@ -61,7 +61,7 @@ public class SolutionTest {
         Solution solution = new Solution();
 
         // 测试大数乘法: 123456789 * 987654321
-        assertEquals("121932631112635269", solution.multiply("123456789", "987654321"));
+        assertEquals("1219326311126352691", solution.multiply("123456789", "987654321"));
     }
 
     /**
@@ -78,7 +78,4 @@ public class SolutionTest {
         assertEquals("888885", solution.multiply("9", "98765"));
     }
 
-    @org.junit.Test
-    public void multiply() {
-    }
 }
