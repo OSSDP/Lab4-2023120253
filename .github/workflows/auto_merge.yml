@@ -1,0 +1,37 @@
+name: PR Auto Merge
+
+on:
+  pull_request:
+    types:
+      - labeled
+      - ready_for_review
+      - synchronize
+  status:
+    branches:
+      - main
+
+jobs:
+  auto_merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      # Checkout the repository
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      # 自动测试
+      - name: Run tests
+        run: mvn -B test --file pom.xml
+
+      # 自动合并
+      - name: Auto-merge PR
+        if: ${{ github.event.pull_request.head.sha == github.event.pull_request.mergeable && success() }}
+        run: |
+          curl -X PUT \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/merge \
+          -d '{"commit_title":"Auto-merged by GitHub Actions","merge_method":"merge"}'
