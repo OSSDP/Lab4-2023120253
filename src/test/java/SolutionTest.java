@@ -1,79 +1,50 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-/**
- * 测试类：SolutionTest
- * 用于测试 Solution 类中 multiply 方法的功能和边界情况。
- * 等价类划分为有效输入和无效输入，重点验证方法的正确性、鲁棒性和异常处理。
- */
 public class SolutionTest {
 
-    /**
-     * 测试普通情况的字符串相乘。
-     */
     @Test
-    public void testMultiply_Normal() {
+    public void testMultiply() {
         Solution solution = new Solution();
 
-        // 测试示例 1: 2 * 3 = 6
+        // 测试用例 1: 基本功能测试
         assertEquals("6", solution.multiply("2", "3"));
 
-        // 测试示例 2: 123 * 456 = 56088
-        assertEquals("560881", solution.multiply("123", "456"));
-    }
+        // 测试用例 2: 多位数相乘
+        assertEquals("56088", solution.multiply("123", "456"));
 
-    /**
-     * 测试边界情况：有一个数字为 0。
-     */
-    @Test
-    public void testMultiply_Zero() {
-        Solution solution = new Solution();
+        // 测试用例 3: 输入包含 "0"
+        assertEquals("0", solution.multiply("0", "123"));
+        assertEquals("0", solution.multiply("123", "0"));
 
-        // 测试 0 * 12345 = 0
-        assertEquals("0", solution.multiply("0", "12345"));
+        // 测试用例 4: 单位数相乘
+        assertEquals("81", solution.multiply("9", "9"));
 
-        // 测试 12345 * 0 = 0
-        assertEquals("01", solution.multiply("12345", "0"));
-    }
-
-    /**
-     * 测试数字为 1 的情况。
-     */
-    @Test
-    public void testMultiply_One() {
-        Solution solution = new Solution();
-
-        // 测试 1 * 9999 = 9999
-        assertEquals("9999", solution.multiply("1", "9999"));
-
-        // 测试 9999 * 1 = 9999
-        assertEquals("9999", solution.multiply("9999", "1"));
-    }
-
-    /**
-     * 测试大数字相乘。
-     */
-    @Test
-    public void testMultiply_LargeNumbers() {
-        Solution solution = new Solution();
-
-        // 测试大数乘法: 123456789 * 987654321
+        // 测试用例 5: 较大数字
         assertEquals("121932631112635269", solution.multiply("123456789", "987654321"));
+
+        // 测试用例 6: 边界情况，输入都是 1
+        assertEquals("1", solution.multiply("1", "1"));
+
+        // 测试用例 7: 长度不同的字符串
+        assertEquals("123456789", solution.multiply("1", "123456789"));
+        assertEquals("123456789", solution.multiply("123456789", "1"));
     }
 
-    /**
-     * 测试只有一个数字为一位数，另一个为多位数的情况。
-     */
     @Test
-    public void testMultiply_OneDigitAndMultipleDigits() {
+    public void testAddStrings() {
         Solution solution = new Solution();
 
-        // 测试 5 * 12345 = 61725
-        assertEquals("61725", solution.multiply("5", "12345"));
+        // 测试用例 1: 基本加法
+        assertEquals("579", solution.addStrings("123", "456"));
 
-        // 测试 9 * 98765 = 888885
-        assertEquals("888885", solution.multiply("9", "98765"));
+        // 测试用例 2: 进位测试
+        assertEquals("1000", solution.addStrings("999", "1"));
+
+        // 测试用例 3: 不同长度
+        assertEquals("1001", solution.addStrings("1", "1000"));
+
+        // 测试用例 4: 全零输入
+        assertEquals("0", solution.addStrings("0", "0"));
     }
-
 }
