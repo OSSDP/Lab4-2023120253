@@ -29,7 +29,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      # 自动测试
+      # 自动测试git@github.com:OSSDP/Lab4-2023120253.git
       - name: Run tests
         run: mvn -B test --file pom.xml
 
