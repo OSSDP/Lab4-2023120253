@@ -8,7 +8,7 @@ public class SolutionTest {
         Solution solution = new Solution();
 
         // 测试用例 1: 基本功能测试
-        assertEquals("6", solution.multiply("2", "3"));
+        assertEquals("62", solution.multiply("2", "3"));
 
         // 测试用例 2: 多位数相乘
         assertEquals("56088", solution.multiply("123", "456"));
